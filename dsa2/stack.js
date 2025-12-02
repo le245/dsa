@@ -223,32 +223,128 @@
 // console.log("after",stack)
 
 
-function isbalanced(str){
+// function isbalanced(str){
 
-    let stack =[]
+//     let stack =[]
 
-    for(let char of str){
+//     for(let char of str){
 
-        if(char === '(' || char === '{'|| char === '['){
-            stack.push(char)
-        }else{
+//         if(char === '(' || char === '{'|| char === '['){
+//             stack.push(char)
+//         }else{
 
-            if(stack.length === 0)return false
-
-
-            let last = stack.pop()
-
-            if(char === ')' && last !=='(')return false
-            if(char === '}' && last !=='{')return false
-            if(char === ']' && last !=='[')return false
-        }
+//             if(stack.length === 0)return false
 
 
-    }
+//             let last = stack.pop()
+
+//             if(char === ')' && last !=='(')return false
+//             if(char === '}' && last !=='{')return false
+//             if(char === ']' && last !=='[')return false
+//         }
 
 
-    return stack.length === 0
+//     }
+
+
+//     return stack.length === 0
     
-}
+// }
 
-console.log(isbalanced("{}{}"))
+// console.log(isbalanced("{}{}"))
+
+
+
+
+// class MinStack {
+//   constructor() {
+//     this.stack = [];
+//     this.minstack = [];
+//   }
+
+//   push(value) {
+//     this.stack.push(value);
+
+    
+//     if (this.minstack.length === 0 || value <= this.minstack[this.minstack.length - 1]) {
+//       this.minstack.push(value);
+//     }
+//   }
+
+//   pop() {
+//     const removed = this.stack.pop();
+    
+    
+//     if (removed === this.minstack[this.minstack.length - 1]) {
+//       this.minstack.pop();
+//     }
+
+//     return removed;
+//   }
+
+//   peek() {
+//     return this.stack[this.stack.length - 1];
+//   }
+
+//   getMin() {
+//     return this.minstack[this.minstack.length - 1];
+//   }
+// }
+
+
+// const ht = new MinStack();
+// ht.push(10);
+// ht.push(20);
+// ht.push(30);
+
+// ht.pop()
+// console.log(ht.minstack);  
+// console.log(ht.getMin());  
+
+// class Deque {
+//   constructor() {
+//     this.items = [];
+//   }
+
+//   addFront(x) {
+//     this.items.unshift(x); 
+//   }
+
+//   addRear(x) {
+//     this.items.push(x); 
+//   }
+
+//   removeFront() {
+//     return this.items.shift()
+//   }
+
+//   removeRear() {
+//     return this.items.pop(); 
+//   }
+
+//   getFront() {
+//     return this.items[0];
+//   }
+
+//   getRear() {
+//     return this.items[this.items.length - 1];
+//   }
+
+//   isEmpty() {
+//     return this.items.length === 0;
+//   }
+
+//   display() {
+//     console.log(this.items);
+//   }
+// }
+
+
+// const deque = new Deque();
+// deque.addRear(10);
+// deque.addRear(20);
+// deque.addFront(5);
+// deque.display();       
+// console.log(deque.removeFront()); 
+// console.log(deque.removeRear());  
+// deque.display(); 
