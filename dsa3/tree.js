@@ -220,6 +220,31 @@ class BST {
     
     
   }
+
+
+   closest(target){
+    if (!this.root) return null
+    let curr=this.root
+    let close=curr.value
+    
+    while(curr){
+      
+      if(Math.abs(target-curr.value) <= Math.abs(target-close)){
+        close=curr.value
+      }
+      
+      
+      if(target < curr.value){
+        curr=curr.left
+      }else if(target > curr.value){
+        curr=curr.right
+      }else{
+        break
+      }
+    }
+    
+    return close
+  }
   
 
    printInorder(node) {
