@@ -170,6 +170,58 @@ class BST {
   
 
 
+  minvalue(node){
+    while(node.left){
+      node = node.left
+    }
+    
+    return node.value
+  }
+  
+  
+ 
+    remove(value){
+  this.root = this.removeNode(this.root, value)
+}
+
+  
+  
+  removeNode(node, value){
+    
+    if(!node)return null
+    
+    if(value < node.value){
+      node.left=this.removeNode(node.left,value)
+      return node
+    }else if(value > node.value){
+      node.right=this.removeNode(node.right,value)
+      return node
+    }else{
+      
+      
+      if(!node.left && !node.right){
+        return null
+      }
+      
+      
+      if(!node.left)return node.right
+      if(!node.right)return node.left
+      
+      
+      let min =this.minvalue(node.right)
+      
+      node.value=min
+      
+      node.right=this.removeNode(node.right,min)
+      return node
+    }
+    
+    
+    
+    
+  }
+  
+
    printInorder(node) {
     if (!node) return
     this.printInorder(node.left)
