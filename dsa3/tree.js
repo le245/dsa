@@ -112,155 +112,412 @@
 
 
 
-class Node {
-    constructor(value) {
-        this.value = value
-        this.left = null
-        this.right = null
-    }
-}
+// class Node {
+//     constructor(value) {
+//         this.value = value
+//         this.left = null
+//         this.right = null
+//     }
+// }
 
-class BST {
-    constructor() {
-        this.root = null
-    }
+// class BST {
+//     constructor() {
+//         this.root = null
+//     }
 
-    insert(value) {
-        const node = new Node(value)
+//     insert(value) {
+//         const node = new Node(value)
 
-        if (!this.root) {
-            this.root = node
-            return
-        }
+//         if (!this.root) {
+//             this.root = node
+//             return
+//         }
 
-        let curr = this.root
+//         let curr = this.root
 
-        while (true) {
-            if (value < curr.value) {
-                if (!curr.left) {
-                    curr.left = node
-                    return
-                }
-                curr = curr.left
-            } else {
-                if (!curr.right) {
-                    curr.right = node
-                    return
-                }
-                curr = curr.right
-            }
-        }
-    }
+//         while (true) {
+//             if (value < curr.value) {
+//                 if (!curr.left) {
+//                     curr.left = node
+//                     return
+//                 }
+//                 curr = curr.left
+//             } else {
+//                 if (!curr.right) {
+//                     curr.right = node
+//                     return
+//                 }
+//                 curr = curr.right
+//             }
+//         }
+//     }
 
- contain(value){
-    let curr=this.root
+//  contain(value){
+//     let curr=this.root
     
-    while(curr){
-      if(value < curr.value){
-        curr=curr.left
-      }else if (value > curr.value){
-        curr=curr.right
-      }else{
-        return true
-      }
-    }
+//     while(curr){
+//       if(value < curr.value){
+//         curr=curr.left
+//       }else if (value > curr.value){
+//         curr=curr.right
+//       }else{
+//         return true
+//       }
+//     }
     
-    return false
-  }
+//     return false
+//   }
   
 
 
-  minvalue(node){
-    while(node.left){
-      node = node.left
-    }
+//   minvalue(node){
+//     while(node.left){
+//       node = node.left
+//     }
     
-    return node.value
-  }
+//     return node.value
+//   }
   
   
  
-    remove(value){
-  this.root = this.removeNode(this.root, value)
-}
+//     remove(value){
+//   this.root = this.removeNode(this.root, value)
+// }
 
   
   
-  removeNode(node, value){
+//   removeNode(node, value){
     
-    if(!node)return null
+//     if(!node)return null
     
-    if(value < node.value){
-      node.left=this.removeNode(node.left,value)
-      return node
-    }else if(value > node.value){
-      node.right=this.removeNode(node.right,value)
-      return node
-    }else{
+//     if(value < node.value){
+//       node.left=this.removeNode(node.left,value)
+//       return node
+//     }else if(value > node.value){
+//       node.right=this.removeNode(node.right,value)
+//       return node
+//     }else{
       
       
-      if(!node.left && !node.right){
-        return null
-      }
+//       if(!node.left && !node.right){
+//         return null
+//       }
       
       
-      if(!node.left)return node.right
-      if(!node.right)return node.left
+//       if(!node.left)return node.right
+//       if(!node.right)return node.left
       
       
-      let min =this.minvalue(node.right)
+//       let min =this.minvalue(node.right)
       
-      node.value=min
+//       node.value=min
       
-      node.right=this.removeNode(node.right,min)
-      return node
-    }
-    
-    
+//       node.right=this.removeNode(node.right,min)
+//       return node
+//     }
     
     
-  }
+    
+    
+//   }
 
 
-   closest(target){
-    if (!this.root) return null
-    let curr=this.root
-    let close=curr.value
-    
-    while(curr){
-      
-      if(Math.abs(target-curr.value) <= Math.abs(target-close)){
-        close=curr.value
-      }
-      
-      
-      if(target < curr.value){
-        curr=curr.left
-      }else if(target > curr.value){
-        curr=curr.right
-      }else{
-        break
-      }
-    }
-    
-    return close
-  }
+
+
+// isBST(node,min= -Infinity , max=Infinity){
+   
+//    if(node === null)return true
+   
+   
+//    if(node.value <=min || node.value >= max){
+//      return false
+//    }
+   
+   
+//    return (
+       
+//        this.isBST(node.left,min,node.value)&&
+//        this.isBST(node.right,node.value,max)
+     
+     
+//      )
+//  }
+ 
+ 
+ 
+//  kthsmallest(root,k){
+   
+//    let count =0 
+//    let res=null
+   
+//    function inorder(node){
+//      if(!node || res!== null)return 
+     
+     
+//      inorder(node.left)
+       
+//        count++
+       
+//        if(count === k){
+//          res=node.value
+//          return 
+//        }
+       
+//        inorder(node.right)
+//      }
+     
+     
+//    inorder(root)
+//    return res
+//  }
   
 
-   printInorder(node) {
-    if (!node) return
-    this.printInorder(node.left)
-    console.log(node.value)
-    this.printInorder(node.right)
-}
 
-}                                                           
-const tree = new BST()
-tree.insert(10)
-tree.insert(5)
-tree.insert(15)
-tree.insert(48)
-tree.insert(29)
-tree.insert(2)
-tree.insert(3)
-tree.printInorder(tree.root)
+//    closest(target){
+//     if (!this.root) return null
+//     let curr=this.root
+//     let close=curr.value
+    
+//     while(curr){
+      
+//       if(Math.abs(target-curr.value) <= Math.abs(target-close)){
+//         close=curr.value
+//       }
+      
+      
+//       if(target < curr.value){
+//         curr=curr.left
+//       }else if(target > curr.value){
+//         curr=curr.right
+//       }else{
+//         break
+//       }
+//     }
+    
+//     return close
+//   }
+  
+
+//    printInorder(node) {
+//     if (!node) return
+//     this.printInorder(node.left)
+//     console.log(node.value)
+//     this.printInorder(node.right)
+// }
+
+// }                                                           
+// const tree = new BST()
+// tree.insert(10)
+// tree.insert(5)
+// tree.insert(15)
+// tree.insert(48)
+// tree.insert(29)
+// tree.insert(2)
+// tree.insert(3)
+// tree.printInorder(tree.root)
+
+
+
+// tree count
+
+
+
+// class Node{
+//   constructor(value){
+    
+//     this.value=value
+//     this.left=null
+//     this.right=null
+    
+//   }
+// }
+
+// function countnodes(node){
+//   if(node === null)return 0;
+  
+//   return 1+countnodes(node.left) + countnodes(node.right)
+// }
+
+// const root=new Node("A")
+
+// root.left= new Node("B")
+// root.right=new Node("C")
+// root.left.left=new Node("D")
+// root.left.right=new Node("E")
+
+// console.log(countnodes(root))
+
+
+
+
+// class Node{
+//   constructor(value){
+    
+//     this.value=value
+//     this.left=null
+//     this.right=null
+    
+//   }
+// }
+
+// function height(node){
+//   if(node === null)return 0
+  
+//   let leftheight= height(node.left)
+//   let rightheight=height(node.right)
+  
+//   return 1+Math.max(leftheight,rightheight)
+// }
+// const root=new Node("A")
+
+// root.left= new Node("B")
+// root.right=new Node("C")
+// root.left.left=new Node("D")
+// root.left.right=new Node("E")
+
+// console.log(height(root))
+
+
+
+
+// class Node{
+//   constructor(value){
+    
+//     this.value=value
+//     this.left=null
+//     this.right=null
+    
+//   }
+// }
+
+// function countleaves(node){
+//   if(node === null)return 0
+  
+//   if(node.left === null && node.right === null)return 1
+  
+//   return countleaves(node.left)+countleaves(node.right)
+// }
+// const root=new Node("A")
+
+// root.left= new Node("B")
+// root.right=new Node("C")
+// root.left.left=new Node("D")
+// root.left.right=new Node("E")
+
+// console.log(countleaves(root))
+
+
+
+// class Node{
+//   constructor(value){
+//     this.value=value
+//     this.left=null
+//     this.right=null
+//   }
+  
+  
+  
+// }
+
+
+// function mirror(node){
+  
+//   if(node === null)return
+  
+  
+//   let temp=node.left
+//   node.left=node.right
+//  node.right=temp
+ 
+ 
+//  mirror(node.left)
+//  mirror(node.right)
+ 
+//  return node
+// }
+
+
+// const root=new Node("A")
+// root.left=new Node("B")
+// root.right=new Node("C")
+// root.left.left=new Node("D")
+// root.left.right=new Node("E")
+// mirror(root);
+// console.log(root);
+
+
+
+// class Node{
+//   constructor(value){
+//     this.value=value
+//     this.left=null
+//     this.right=null
+//   }
+  
+  
+  
+// }
+
+
+// function isIdentical(t1,t2){
+  
+//   if(t1 === null && t2 === null)return true
+  
+//   if(t1 === null || t2 === null)return false
+  
+  
+//   return (
+//     t1.value === t2.value && 
+//     isIdentical(t1.left,t2.left) && 
+//     isIdentical(t1.right, t2.right)
+//     )
+// }
+
+// const t1 = new Node("A");
+// t1.left = new Node("B");
+// t1.right = new Node("C");
+
+// const t2 = new Node("A");
+// t2.left = new Node("B");
+// t2.right = new Node("C");
+
+// console.log(isIdentical(t1, t2)); 
+
+
+
+// class Node{
+//   constructor(value){
+//     this.value=value
+//     this.left=null
+//     this.right=null
+//   }
+  
+  
+// }
+
+
+// function isbalanced(root){
+//   if(!root)return true
+  
+//   const height=(node)=>{
+    
+//     if(!node)return 0
+    
+//     let left=height(node.left)
+//     let right=height(node.right)
+    
+//     if(left === -1 || right === -1 || Math.abs(left - right) > 1)return -1 
+//     return Math.max(left,right)+1;
+    
+    
+//   }
+  
+//   return height(root)!==-1
+// }
+
+// let root = new Node(1);
+// root.left = new Node(2);
+// root.right = new Node(3);
+// root.left.left = new Node(4);
+
+// console.log(isbalanced(root))  
